@@ -18,8 +18,8 @@ class SnakeGameAI:
         self.game_over = False
         self.snake_pos = [100, 50]
         self.snake_body = [[100, 50], [90, 50], [80, 50]]
-        self.food_pos = self._place_food()
-        self.food_spawn = True
+        self.food_spawn = False
+        self._place_food()
         self.direction = 'RIGHT'
         self.change_to = self.direction
         self.score = 0
@@ -48,7 +48,7 @@ class SnakeGameAI:
         time.sleep(1)
 
     #Main Function
-    def run_game(self, action, generation):
+    def run_game(self, action):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -107,8 +107,11 @@ class SnakeGameAI:
 
     def _place_food(self):
         if not self.food_spawn:
-            self.food_pos = [random.randrange(1, (self.width // 10)) * 10, random.randrange(1, (self.height // 10)) * 10]
+            self.food_pos = self._random_pos()
         self.food_spawn = True
+
+    def _random_pos(self):
+        return [random.randrange(1, (self.width // 10)) * 10, random.randrange(1, (self.height // 10)) * 10]
 
 
     def is_collision(self, point=None):
@@ -122,6 +125,8 @@ class SnakeGameAI:
         for block in self.snake_body[1:]:
             if point[0] == block[0] and point[1] == block[1]:
                 return True
+        
+        return False
 
     def update_ui(self):
         self.screen.fill((0, 0, 0))

@@ -3,6 +3,7 @@ import random
 from ai_game import SnakeGameAI
 from collections import deque
 import numpy
+import time
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -60,12 +61,12 @@ class Agent:
             dir_d,
 
             #Food Location
-
             game.food_pos[0] < head[0],
             game.food_pos[0] > head[0],
             game.food_pos[1] < head[1],
             game.food_pos[1] > head[1],
         ]
+        print(state)
 
         return numpy.array(state, dtype=int) #turns booleans to ints
 
@@ -108,6 +109,7 @@ def train():
     total_score = 0
     record = 0
     agent = Agent()
+    time.sleep(2)
     while True:
 
         #get old state
@@ -117,7 +119,7 @@ def train():
         final_move = agent.get_action(state_old)
 
         #perform move
-        #reward = game.run_game(final_move)
+        reward = game.run_game(final_move) #This is the action
         state_new = agent.get_state(game)
 
         #train short memory

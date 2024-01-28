@@ -4,6 +4,7 @@ from ai_game import SnakeGameAI
 from collections import deque
 import numpy
 import time
+from model import Linear_QNet, QTrainer
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -14,11 +15,11 @@ class Agent:
     def __init__(self) -> None:
         self.generation = 0
         self.epsilon = 0 #randomness
-        self.gamma = 0 #discount rate
+        self.gamma = 0.9 #discount rate
         self.memory = deque(maxlen=MAX_MEMORY)
 
-        self.model = None
-        self.trainer = None
+        self.model = Linear_QNet(11, 256, 3)
+        self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
 
             
     def get_state(self, game):
@@ -95,7 +96,7 @@ class Agent:
             final_move[move] = 1
         else:
             state0 = torch.tensor(state, dtype=torch.float) #This will give us a raw value
-            prediction = self.model.predict(state0)
+            prediction = self.model(state0)
             move = torch.argmax(prediction).item()
             final_move[move] = 1
 
@@ -136,7 +137,7 @@ def train():
 
             if game.score > record:
                 record = game.score
-                #save model
+                agent.model.save()
 
             print(f'Game: {agent.generation}')
 

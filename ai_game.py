@@ -136,7 +136,6 @@ class SnakeGameAI:
         self.screen.blit(restart_surface, restart_rect)
 
         pygame.display.flip()
-        time.sleep(1)
 
 
 

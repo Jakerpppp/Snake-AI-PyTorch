@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project represents my foray into the world of artificial intelligence (AI) using Python and PyTorch. Inspired by the classic game of Snake, I embarked on this journey to visualize and understand how reinforcement learning and deep learning can be applied in a practical, engaging context. Following a tutorial, I gained a foundational understanding of PyTorch and the implementation of AI in Python. I really wanted to see a real example that I could code of AI learning, to inspire me on the path of AI
+This project represents my foray into the world of artificial intelligence (AI) using Python and PyTorch. Inspired by the classic game of Snake, I embarked on this journey to visualize and understand how reinforcement learning and deep learning can be applied in a practical, engaging context. Following a tutorial, I gained a foundational understanding of PyTorch and the implementation of AI in Python. I really wanted to see a real example that I could code of AI learning, to inspire me on the path of AI. Uses Deep Q Learning and Neural Networks.
 
 ## Technologies Used
 
@@ -12,12 +12,15 @@ pygame (for game development)
 
 ## Project Description
 
-In this project, I developed an AI that learns to play the Snake game. The goal was to use this simple yet intriguing environment to observe the mechanics of reinforcement learning and deep learning in action. By training a neural network to navigate the game, I was able to gain insights into the decision-making processes of AI.
+In this project, I developed an AI that learns to play the Snake game. The goal was to use this simple yet intriguing environment to observe the mechanics of reinforcement learning and deep Q learning in action. By training a neural network to navigate the game, I was able to gain insights into the decision-making processes of AI.
 
 ## Key Learning Outcomes
 Gained a basic understanding of PyTorch and its application in AI.
 Explored the concepts of reinforcement learning and deep learning.
 Developed a hands-on project that consolidates theoretical knowledge into practical skills.
+Uses Deep Q Learning and Neural Networks.
+
+
 
 ## Motivation
 
@@ -35,6 +38,7 @@ To get the Snake AI PyTorch project up and running on your local machine, follow
 ### Prerequisites
 Before running the project, ensure you have Python installed on your system. If not, you can download it from python.org. This project was developed using Python 3.x.
 
+
 ### Installation
 1. Clone the Repository
 First, clone the repository to your local machine using Git:
@@ -42,12 +46,14 @@ First, clone the repository to your local machine using Git:
 git clone https://github.com/Jakerpppp/Snake-AI-PyTorch 
 ```
 
+
 ### Install Required Packages
 Navigate to the cloned directory and install the necessary packages using the following command:
 ```bash
 pip install -r requirements.txt
 ```
 This will install all the dependencies listed in the requirements.txt file.
+
 
 ### Running the Project
 Once the installation is complete, you can run the project:

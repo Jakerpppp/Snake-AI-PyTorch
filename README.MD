@@ -17,7 +17,7 @@ Explored the concepts of reinforcement learning and deep learning.
 Developed a hands-on project that consolidates theoretical knowledge into practical skills.
 Uses Deep Q Learning and Neural Networks.
 
-## Motivation
+## Motivation
 My primary motivation behind this project was to visualize how reinforcement learning and deep learning work in a tangible way. The Snake game provided a perfect platform to see these concepts in action. This project has been a significant learning experience, laying the groundwork for my journey into AI and deep learning.
 
 ## Future Aspirations
@@ -26,24 +26,24 @@ This project has sparked a deep interest in AI, and I am keen to delve deeper in
 ## How to Run the Project
 To get the Snake AI PyTorch project up and running on your local machine, follow these simple steps:
 
-### Prerequisites
+### Prerequistes
 Before running the project, ensure you have Python installed on your system. If not, you can download it from python.org. This project was developed using Python 3.x.
 
-### Installation
+## Installation
 1. Clone the Repository
 First, clone the repository to your local machine using Git:
 ```bash 
 git clone https://github.com/Jakerpppp/Snake-AI-PyTorch 
 ```
 
-### Install Required Packages
+### Install Required Packages
 Navigate to the cloned directory and install the necessary packages using the following command:
 ```bash
 pip install -r requirements.txt
 ```
 This will install all the dependencies listed in the requirements.txt file.
 
-### Running the Project
+### Running the Project
 Once the installation is complete, you can run the project:
 ```bash
 python agent.py

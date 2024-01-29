@@ -15,12 +15,11 @@ pygame (for game development)
 In this project, I developed an AI that learns to play the Snake game. The goal was to use this simple yet intriguing environment to observe the mechanics of reinforcement learning and deep Q learning in action. By training a neural network to navigate the game, I was able to gain insights into the decision-making processes of AI.
 
 ## Key Learning Outcomes
+
 Gained a basic understanding of PyTorch and its application in AI.
 Explored the concepts of reinforcement learning and deep learning.
 Developed a hands-on project that consolidates theoretical knowledge into practical skills.
 Uses Deep Q Learning and Neural Networks.
-
-
 
 ## Motivation
 
@@ -30,14 +29,11 @@ My primary motivation behind this project was to visualize how reinforcement lea
 
 This project has sparked a deep interest in AI, and I am keen to delve deeper into this field. It has inspired me to access more resources and build a robust understanding of the fundamentals of AI. I am excited to take on more projects like this, furthering my knowledge and skills in AI and PyTorch.
 
-I'd like to thank the creators of the tutorial that guided me through the initial stages of learning PyTorch and AI concepts. Their resources have been invaluable in kickstarting my journey in AI.
-
 ## How to Run the Project
 To get the Snake AI PyTorch project up and running on your local machine, follow these simple steps:
 
 ### Prerequisites
 Before running the project, ensure you have Python installed on your system. If not, you can download it from python.org. This project was developed using Python 3.x.
-
 
 ### Installation
 1. Clone the Repository
@@ -46,7 +42,6 @@ First, clone the repository to your local machine using Git:
 git clone https://github.com/Jakerpppp/Snake-AI-PyTorch 
 ```
 
-
 ### Install Required Packages
 Navigate to the cloned directory and install the necessary packages using the following command:
 ```bash
@@ -54,10 +49,8 @@ pip install -r requirements.txt
 ```
 This will install all the dependencies listed in the requirements.txt file.
 
-
 ### Running the Project
 Once the installation is complete, you can run the project:
-
 ```bash
 python agent.py
 ```

@@ -4,6 +4,7 @@ import numpy as np
 from collections import deque
 from ai_game import SnakeGameAI, Direction, Point
 from model import Linear_QNet, QTrainer
+import time
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -99,7 +100,8 @@ class Agent:
         return final_move
 
 
-def train():
+
+def trainUnlimited():
     record = 0
     agent = Agent()
     game = SnakeGameAI()
@@ -122,7 +124,7 @@ def train():
 
         if done:
             # train long memory, plot result
-            game.reset()
+            game.reset(record)
             agent.n_games += 1
             agent.train_long_memory()
 
@@ -132,6 +134,43 @@ def train():
 
             print('Game', agent.n_games, 'Score', score, 'Record:', record)
 
+def train100Games():
+    record = [0,0]
+    agent = Agent()
+    game = SnakeGameAI()
+    while agent.n_games < 100:
+        # get old state
+        state_old = agent.get_state(game)
+
+        # get move
+        final_move = agent.get_action(state_old)
+
+        # perform move and get new state
+        reward, done, score = game.play_step(final_move)
+        state_new = agent.get_state(game)
+
+        # train short memory
+        agent.train_short_memory(state_old, final_move, reward, state_new, done)
+
+        # remember
+        agent.remember(state_old, final_move, reward, state_new, done)
+
+        if done:
+            # train long memory
+            game.reset()
+            agent.n_games += 1
+            agent.train_long_memory()
+
+            if score > record[0]:
+                record[0] = score
+                record[1] = agent.n_games
+                agent.model.save()
+
+            print('Game', agent.n_games, 'Score', score, 'Record:', record[0], 'On Gen:', record[1])
+    game.display100Games(record)
+    time.sleep(30)
+    
+
 
 if __name__ == '__main__':
-    train()
+    train100Games()
